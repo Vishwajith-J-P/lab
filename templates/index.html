@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAA Lab Programs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>DAA Lab Programs</h1>
+    </header>
+
+    <div class="program-list">
+        {% for file in files %}
+        <div class="card">
+                <h3><a href="/program/{{ file }}" class="btn">{{ file }}</a></h3> 
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>

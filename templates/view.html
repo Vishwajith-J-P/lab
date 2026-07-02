@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ filename }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="/" class="back">Back</a>
+
+    <div class="program-title">
+        <h2>{{ filename }}</h2>
+        <p>Python Source Code</p>
+    </div>
+
+    <button class="btn copy-btn" onclick="copyCode()">
+        Copy Code
+    </button>
+
+    <pre><code id="code" class="language-python">{{ code }}</code></pre>
+
+</div>
+
+<script>
+hljs.highlightAll();
+
+function copyCode() {
+    navigator.clipboard.writeText(document.getElementById("code").innerText);
+    alert("Copied!");
+}
+</script>
+
+</body>
+</html>
