@@ -19,9 +19,9 @@ def dijkstra(graph, source):
         visited.add(u)
         for v, w in graph[u]:
             if dist[u] + w < dist[v]:
-            dist[v] = dist[u] + w
-            prev[v] = u
-            heapq.heappush(pq, (dist[v], v))
+                dist[v] = dist[u] + w
+                prev[v] = u
+                heapq.heappush(pq, (dist[v], v))
 
     return dist, prev
 
@@ -55,4 +55,4 @@ for v in range(len(graph)):
     path = reconstruct_path(prev, source, v)
     path_str = ' -> '.join(map(str, path)) if path else 'No path'
     d = dist[v] if dist[v] != float('inf') else 'INF'
-    print(f'{v:>8} {str(d):>10} {path_str:>30}'
+    print(f'{v:>8} {str(d):>10} {path_str:>30}')
